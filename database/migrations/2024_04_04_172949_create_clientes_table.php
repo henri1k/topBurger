@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('cliente_models', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 200)->nullable(false);
             $table->string('email', 200)-> unique()-> nullable(false);
             $table->string('endereco', 150)->nullable(false);
-            $table->text('cpf', 11)->nullable(false);
+            $table->string('cpf', 11)->nullable(false);
             $table->string('numero', 4)->nullable(false);
             $table->string('telefone', 11)->nullable(false);
             $table->string('imagem')->nullable(false);
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('cliente_models');
     }
 };
