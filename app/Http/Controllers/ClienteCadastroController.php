@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\ClienteModel;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
 {
 
     public function index(){
-        $Clientes = Cliente::all();
+        $Clientes = ClienteModel::all();
 
             $ClientesComImagem = $Clientes->map(function($Cliente) {
                 return [
                     'nome' => $Cliente->nome,
-                    'preco' => $Cliente->preco,
-                    'ingredientes' => $Cliente->ingredientes,
-                    'imagem' => asset('storage/' . $Cliente->imagem),
-                    'telefone' => $Cliente->telefone,
-                    'endereco' => $Cliente->endereco,
                     'email' => $Cliente->email,
+                    'numero' => $Cliente->numero,
+                    'imagem' => asset('storage/' . $Cliente->imagem),
+                    'endereco' => $Cliente->endereco,
+                    'cpf' => $Cliente->cpf,
                     'password' => $Cliente->password,
 
 
@@ -39,7 +39,7 @@ class ClienteController extends Controller
             $caminhoImagem= $imagem->storeAs('imagens/Clientes', $nomeImagem,'public');
             $ClienteData['imagem']= $caminhoImagem;
         }
-        $Cliente = Cliente::create($ClienteData);
+        $Cliente = ClienteModel::create($ClienteData);
         return response()->json(['Cliente'=>$Cliente], 201);
     }
 
