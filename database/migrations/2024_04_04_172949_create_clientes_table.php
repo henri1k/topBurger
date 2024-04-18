@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('email', 200)-> unique()-> nullable(false);
             $table->string('endereco', 150)->nullable(false);
             $table->string('cpf', 11)->nullable(false);
-            $table->string('numero', 4)->nullable(false);
             $table->string('telefone', 11)->nullable(false);
             $table->string('imagem')->nullable(false);
             $table->string('password')->nullable(false);

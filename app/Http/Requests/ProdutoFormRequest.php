@@ -11,7 +11,7 @@ class ProdutoFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class ProdutoFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
+            'nome' => 'require|max:80|min:5|',
+            'preco' => 'require|max:15|min:15|decimal:2',
+            'descricao' => 'require|max:400|',
+
         ];
     }
 }

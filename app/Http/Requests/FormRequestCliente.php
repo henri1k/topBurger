@@ -13,7 +13,7 @@ class FormRequestCliente extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,13 +25,12 @@ class FormRequestCliente extends FormRequest
     {
         return [
 
-            'nome' => 'require|max:200|min:5|',
-            'email' => 'require|max:200|min:10|unique:cliente,email',
-            'numero' => 'require|max:4|min:4|',
-            'endereco' => 'require|max:150|',
-            'cpf' => 'require|max:11|min:11|',
-            'telefone' => 'require|max:11|min:11|',
-            'password' => 'require|max:100|min:5|'
+            'nome' => 'required|max:200|min:5|',
+            'email' => 'required|max:200|min:10|unique:cliente_models,email',
+            'endereco' => 'required|max:150|',
+            'cpf' => 'required|max:11|min:11|',
+            'telefone' => 'required|max:11|min:11|',
+            'password' => 'required|max:100|min:5|'
             
         ];
     }
